@@ -121,8 +121,7 @@ void MainWindow::closeConnection()
         db.close();
     }                                                                           // } ВАЖНО!
     QSqlDatabase::removeDatabase(connectName_);
-    qDebug() << "Close connection";
-    model_->select();
+    qDebug() << "Close connection";  
 }
 
 //-------------------------------------------------------------------
@@ -139,7 +138,6 @@ void MainWindow::deleteTable()
 {
     bool tmp = bd::dbDeleteTable(connectName_, tableName_);
     qDebug() << "Drop table: " << tmp;
-    model_->select();
 }
 
 //-------------------------------------------------------------------
@@ -148,7 +146,6 @@ void MainWindow::insertInto()
 {
     bool tmp = bd::dbInsertInto(connectName_, tableName_);
     qDebug() << "InsertInto: " << tmp;
-    model_->select();
 }
 
 //-------------------------------------------------------------------
@@ -157,7 +154,6 @@ void MainWindow::insertIntoOracle()
 {
     bool tmp = bd::dbInsertIntoOracle(connectName_, tableName_);
     qDebug() << "ORACLE_InsertInto: " << tmp;
-    model_->select();
 }
 
 //-------------------------------------------------------------------
@@ -166,7 +162,7 @@ void MainWindow::insertIntoODBC()
 {
     bool tmp = bd::dbInsertIntoODBC(connectName_, tableName_);
     qDebug() << "ODBC_addBindValue_InsertInto: " << tmp;
-    model_->select();
+
 }
 
 //-------------------------------------------------------------------
@@ -175,7 +171,7 @@ void MainWindow::insertIntoODBCbind()
 {
     bool tmp = bd::dbInsertIntoODBCbind(connectName_, tableName_);
     qDebug() << "ODBC_bindValue_InsertInto: " << tmp;
-    model_->select();
+
 }
 
 //-------------------------------------------------------------------
